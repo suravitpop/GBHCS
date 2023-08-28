@@ -1,0 +1,19 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+$body-font-family: 'Prompt', 'Poppins', Roboto, 'Mitr', sans-serif !important;
+$heading-font-family: 'Prompt', 'Poppins', Roboto, 'Mitr', sans-serif !important;
+.v-toolbar__content{
+    background-color: #0e999b;
+}
+span.v-btn__content{
+    color: #ffffff;
+}
+.theme--dark.v-application{
+    background-color: #f3f4f4;
+    color:black
+}
+.theme--dark.v-card{
+    background-color: #0e999b;
+}
