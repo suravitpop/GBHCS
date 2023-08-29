@@ -23,3 +23,24 @@ span.v-btn__content{
     }
     
 }
+
+// mobile responsive
+@media screen and (max-width:767px) {
+
+.v-toolbar__title img {
+    height: 75px;
+}
+
+.v-toolbar__title {
+    padding-left: 0px !important;
+    margin-left: -15px;
+    margin-top: 7px;
+    img {
+        height: 75px;
+    }
+}
+
+button.ma-2.v-btn.v-btn--is-elevated.v-btn--has-bg.v-btn--rounded.theme--dark.v-size--default.primary{
+    margin-right:15px  !important;
+}
+}

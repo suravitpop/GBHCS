@@ -63,8 +63,8 @@ export default {
     },
     meta: {
       title: 'Global Helpcare Solutions Co., Ltd.',
-      description: 'Echo Soft | The best solution for you',
-      author: 'Kriangkrai Intarangsri',
+      description: 'Global Helpcare Solutions | We offer health solutions for your stay in Thailand',
+      author: 'Kriangkrai Intarangsri & Suravit Chatapat',
       theme_color: '#f3f4f4'
     },
     manifest: {
