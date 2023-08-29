@@ -8,7 +8,7 @@
           style="border-radius: 25px;"
         />
       </v-col>
-      <v-col cols="12" sm="12" md="6">
+      <v-col cols="12" sm="12" md="6" class="aboutcc">
         <div class="text-h4">
           What We do?
         </div>

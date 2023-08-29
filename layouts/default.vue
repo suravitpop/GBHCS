@@ -49,7 +49,7 @@
         color="primary"
         @click="$vuetify.goTo('.contact_section')"
       >
-        ติดต่อเรา
+        Contact us
         <template #loader>
           <span class="custom-loader">
             <v-icon light>mdi-cached</v-icon>
@@ -82,22 +82,17 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'หน้าหลัก',
+          title: 'Home',
           to: 'home_section'
         },
         {
           icon: 'mdi-apps',
-          title: 'บริการของเรา',
+          title: 'Our Services',
           to: 'service_section'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'ผลงาน',
-          to: 'portfolio_section'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'เกี่ยวกับเรา',
+          title: 'About us',
           to: 'about_section'
         }
       ],
