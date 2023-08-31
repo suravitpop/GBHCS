@@ -11,7 +11,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', 
+      name: 'description', 
+      content: 'Global Helpcare Solutions | We offer health solutions for your stay in Thailand' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
