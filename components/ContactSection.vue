@@ -1,7 +1,7 @@
 <template>
   <v-container class="pa-5 mt-5 mb-10">
     <div class="container ee">
-      <div class="text-center text-h4 col col-12" >
+      <div class="text-center text-h4 col col-12">
         Contact Us
       </div>
     </div>
