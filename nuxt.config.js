@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - HOST-Health Co., Ltd.',
+    titleTemplate: '%s - Global Help Care Solutions Co., Ltd.',
     title: 'HOST-Health',
     meta: [
       { charset: 'utf-8' },
@@ -64,13 +64,13 @@ export default {
       purpose: 'maskable'
     },
     meta: {
-      title: 'HOST-Health Co., Ltd.',
+      title: 'Global Help Care Solutions Co., Ltd.',
       description: 'HOST-Health | We offer health solutions for your stay in Thailand',
       author: 'Kriangkrai Intarangsri & Suravit Chatapat',
       theme_color: '#f3f4f4'
     },
     manifest: {
-      name: 'HOST-Health Co., Ltd.',
+      name: 'Global Help Care Solutions Co., Ltd.',
       short_name: 'HOST-Health',
       lang: 'en',
       display: 'fullscreen'

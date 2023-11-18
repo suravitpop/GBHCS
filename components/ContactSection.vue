@@ -13,7 +13,7 @@
           </v-col>
           <v-col cols="8">
             <p class="text-left">
-              HOST-Health Co., Ltd<br>
+              Global Help Care Solutions Co., Ltd<br>
               71/7 Perfect place soi Ramkamhang 164 Minburi Bangkok <br>
               Thailand 10510
             </p>
