@@ -65,7 +65,7 @@
         class="text-center text-caption"
         cols="12"
       >
-        @ {{ new Date().getFullYear() }} Global Helpcare Solutions Co., Ltd.
+        @ {{ new Date().getFullYear() }} HOST-Health Co., Ltd.
       </v-col>
     </v-footer>
   </v-app>

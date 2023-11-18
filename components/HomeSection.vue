@@ -23,7 +23,7 @@
               cols="12"
             >
               <div class="text-h2 font-weight-bold mb-4">
-                Global Helpcare Solutions
+                HOST-Health
               </div>
               <div class="text-h5 subheading">
                 We offer health solutions for your stay in Thailand

@@ -13,7 +13,7 @@
           </v-col>
           <v-col cols="8">
             <p class="text-left">
-              Global Helpcare Solutions Co., Ltd<br>
+              HOST-Health Co., Ltd<br>
               71/7 Perfect place soi Ramkamhang 164 Minburi Bangkok <br>
               Thailand 10510
             </p>
@@ -38,7 +38,6 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
 export default {
   name: 'IndexPage',

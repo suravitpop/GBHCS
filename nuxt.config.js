@@ -6,14 +6,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Global Helpcare Solutions Co., Ltd.',
-    title: 'GBHCS',
+    titleTemplate: '%s - HOST-Health Co., Ltd.',
+    title: 'HOST-Health',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', 
       name: 'description', 
-      content: 'Global Helpcare Solutions | We offer health solutions for your stay in Thailand' },
+      content: 'HOST-Health | We offer health solutions for your stay in Thailand' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -58,20 +58,20 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     icon: {
-      source: 'GBHCS/static/icon.png',
+      source: 'HOST-Health/static/icon.png',
       fileName: 'icon.png',
       targetDir: 'icons',
       purpose: 'maskable'
     },
     meta: {
-      title: 'Global Helpcare Solutions Co., Ltd.',
-      description: 'Global Helpcare Solutions | We offer health solutions for your stay in Thailand',
+      title: 'HOST-Health Co., Ltd.',
+      description: 'HOST-Health | We offer health solutions for your stay in Thailand',
       author: 'Kriangkrai Intarangsri & Suravit Chatapat',
       theme_color: '#f3f4f4'
     },
     manifest: {
-      name: 'Global Helpcare Solutions Co., Ltd.',
-      short_name: 'GBHCS',
+      name: 'HOST-Health Co., Ltd.',
+      short_name: 'HOST-Health',
       lang: 'en',
       display: 'fullscreen'
     }
