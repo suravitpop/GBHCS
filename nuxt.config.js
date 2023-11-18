@@ -12,7 +12,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { hid: 'og:title', name: 'og:title', content: 'Host-Health by Global Help Care Solutions' },
-    { hid: 'og:image', name: 'og:image', content: '~/assets/images/logo-big.png' },
+    { hid: 'og:image', name: 'og:image', content: 'https://host-health.com/_nuxt/img/logo-somebg.499938d.png' },
       { hid: 'description', 
       name: 'description', 
       content: 'HOST-Health | We offer health solutions for your stay in Thailand' },
