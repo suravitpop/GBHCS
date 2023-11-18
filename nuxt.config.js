@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Global Help Care Solutions Co., Ltd.',
+    titleTemplate: '%s by Global Help Care Solutions Co., Ltd.',
     title: 'HOST-Health',
     meta: [
       { charset: 'utf-8' },
