@@ -7,8 +7,9 @@ $heading-font-family: 'Prompt', 'Poppins', Roboto, 'Mitr', sans-serif !important
 .v-toolbar__content{
     background-color: #0e999b;
 }
-span.v-btn__content{
+span.v-btn__content a{
     color: #ffffff;
+    text-decoration: none;
 }
 .theme--dark.v-application{
     background-color: #f3f4f4;
@@ -17,7 +18,40 @@ span.v-btn__content{
 .theme--dark.v-card{
     background-color: #0e999b;
 }
+.contactus-header{
+    margin-top: -10px;
+}
+.contactus-body{
+    margin:50px 0;
+    
+}
+.ourservice-title{
+    margin-bottom: 20px;
+}
+
+.service-sec1{
+    margin-top: 30px !important;
+}
+.service-sec2{
+    // margin:100px 70px 50px 70px !important;
+    // .col-sm-12.col-md-2.col-12 {
+    //     padding: 5px !important;
+    // }
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sw-sec2{
+    margin:15px 100px 50px 70px !important;
+    .col-sm-12.col-md-2.col-12 {
+        padding: 5px !important;
+    }
+}
+
 @media screen and (min-width:767px) {
+    .whoarewe{
+        margin-left: 50px;
+        margin-right: 50px;
+    }
     .aboutcc{
         padding:0px 100px;
     }
@@ -26,7 +60,47 @@ span.v-btn__content{
 
 // mobile responsive
 @media screen and (max-width:767px) {
+    body, html {
+        margin: 0;
+        padding: 0;
+        .v-list-group__header.v-list-item.v-list-item--link.theme--dark {
+            margin-left: 0px !important;
+            text-align: left;
+            padding-left: 0px !important;
+        }
+      }
+      .container {
+        width: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* This can be used to hide horizontal scrollbar */
+      }
+    .contactus-body{
+        .row.align-center {
+            display: block;
+            width: 100%;
+        }
+        img{
+            width: 60%;
+        }
+        .text-center.col.col-4{
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .col.col-8{
+        max-width: 100%;
+        margin: 0px;
 
+        }
+        .text-left{
+            padding-left: 15px;
+            width: 100%;
+        }
+    }
+    
 .v-toolbar__title img {
     height: 75px;
 }
@@ -44,3 +118,12 @@ button.ma-2.v-btn.v-btn--is-elevated.v-btn--has-bg.v-btn--rounded.theme--dark.v-
     margin-right:15px  !important;
 }
 }
+.v-toolbar__content a {
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 0 15px;
+}
+a.ma-1.nuxt-link-exact-active.nuxt-link-active{
+    font-weight: bold;
+}
+

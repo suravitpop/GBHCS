@@ -16,8 +16,10 @@
     <HomeSection class="home_section" />
     <ServiceSection class="service_section" />
     <!-- <PortfolioSection class="portfolio_section" /> -->
-    <AboutSection class="about_section" />
-    <ContactSection class="contact_section" />
+    <!-- <AboutSection class="about_section" /> -->
+    <whoareweSection class="whoarewe_section" />
+    <!-- <OurpartnerSection class="ourpartner_section" /> -->
+    <!-- <ContactSection class="contact_section" /> -->
   </v-container>
 </template>
 
@@ -38,6 +40,9 @@ export default {
     },
     toTop () {
       this.$vuetify.goTo(0)
+    },
+    navigateToContactUs () {
+      this.$router.push('/contact_us')
     }
   }
 }
