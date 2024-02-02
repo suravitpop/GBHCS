@@ -61,7 +61,7 @@
       <v-row align="center" class="sw-sec2">
         <v-col cols="10" sm="12" md="6">
           <v-img
-            :src="require(`~/assets/images/sw.png`)"
+            :src="require(`~/assets/images/softwarepic.png`)"
             :aspect-ratio="16/10"
             style="border-radius: 25px;"
           />
