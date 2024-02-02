@@ -45,8 +45,8 @@
               Thailand 10510
             </p>
             <p class="text-left">
-              Phone: (+66)0635964441, (+66)0922544641<br>
-              Email: Globalhelpcaresolutions@gmail.com
+              Phone: <a href="tel:0635964441">(+66)0635964441</a>, <a href="tel:0922544641">(+66)0922544641</a><br>
+              Email: <a href="mailto:globalhelpcaresolutions@gmail.com">Globalhelpcaresolutions@gmail.com</a>
             </p>
           </v-col>
         </v-row>
