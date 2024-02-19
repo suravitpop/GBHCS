@@ -46,7 +46,7 @@
             </p>
             <p class="text-left">
               Phone: <a href="tel:0922544641">(+66)0922544641</a><br>
-              Email: <a href="mailto:globalhelpcaresolutions@gmail.com">Globalhelpcaresolutions@gmail.com</a>
+              Email: <a href="mailto:hosthealth.th@gmail.com">Hosthealth.th@gmail.com</a>
             </p>
           </v-col>
         </v-row>
