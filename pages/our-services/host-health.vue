@@ -404,7 +404,7 @@ export default {
 
     contactUs (serviceName) {
       // Redirect to the contact page with the service name as a query parameter
-      this.$router.push({ path: '/contactv2', query: { service: serviceName } })
+      this.$router.push({ path: '/consultation', query: { service: serviceName } })
     }
   }
 }
