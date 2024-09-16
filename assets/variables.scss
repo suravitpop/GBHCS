@@ -4,6 +4,40 @@
 // $font-size-root: 20px;
 $body-font-family: 'Prompt', 'Poppins', Roboto, 'Mitr', sans-serif !important;
 $heading-font-family: 'Prompt', 'Poppins', Roboto, 'Mitr', sans-serif !important;
+.v-input input {
+    color: black !important;
+  }
+  .theme--dark.v-input input, .theme--dark.v-input textarea {
+    color: #000000 !important;
+}
+i.v-icon.notranslate.mdi.mdi-menu-down.theme--dark {
+    color: black;
+}
+.mdi-checkbox-blank-outline::before {
+    content: "\F0131";
+    color: #000000 !important;
+}
+.theme--dark.v-label {
+    color: #000000 !important;
+}
+.theme--dark.v-text-field > .v-input__control > .v-input__slot:before {
+    border-color: #0e999b !important;
+}
+.theme--dark.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
+    color: #0e999b;
+}
+.v-list .v-list-item--active {
+    color: inherit !important;
+}
+div#list-33[data-v-136d5f1a] {
+    background: #0e999b !important;
+}
+.v-input__slot {
+    border-radius: 20px !important;
+}
+.theme--dark.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state):not(.v-input--is-disabled) > .v-input__control > .v-input__slot:hover fieldset {
+    color: #0e999b;
+}
 .v-toolbar__content{
     background-color: #0e999b;
 }

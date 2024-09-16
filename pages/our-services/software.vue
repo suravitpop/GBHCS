@@ -72,9 +72,10 @@
           </div>
           <p class="text-left">
             <ul>
-              <li>View Product Detail</li>
-              <li>Reviews from Real Customers</li>
-              <li>Need more information : <a href="/contact-us">Contact us</a></li>
+              <li>Execellent review from Real Customers.</li>
+              <li>Currently reduces operational time from 4 hours/day to just 1 hour</li>
+              <li>Each device efficiently handles a minimum of 73,000 patients per year.</li>
+              <li>Need more information? Please <a href="/contact-us">contact us</a> for further details.</li>
             </ul>
           </p>
         </v-col>

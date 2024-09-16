@@ -1,3 +1,7 @@
+async asyncData({ $axios }) {
+  const products = await $axios.$get('/products');
+  return { products };
+}
 <template>
   <v-container class="fill-height pa-0 mb-10" fluid>
     <v-row align="center">
@@ -27,6 +31,64 @@
             </v-col>
           </v-row>
         </v-img>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" align="center" class="text-h4">
+        RECEIVE TREATMENT
+      </v-col>
+    </v-row>
+    <!-- Search bar -->
+    <v-row class="mb-4">
+      <v-col cols="12" md="6" class="mx-auto searchbar">
+        <v-text-field
+          v-model="searchQuery"
+          label="SEARCH PROCEDURE"
+          outlined
+          dense
+          clearable
+          color:black
+        />
+      </v-col>
+    </v-row>
+
+    <!-- Products layout -->
+    <v-row class="service-sec1">
+      <v-col
+        v-for="product in filteredProducts"
+        :key="product.id"
+        cols="12"
+        sm="12"
+        md="4"
+      >
+        <v-card class="mx-auto card-main" max-width="80%">
+          <!-- Display the image dynamically -->
+          <v-img
+            v-if="product.attributes.image && product.attributes.image.data"
+            :src="getImageUrl(product.attributes.image.data.attributes.url)"
+            height="150"
+            cover
+            class="fit-image"
+          />
+          <!-- Product name -->
+          <v-card-title class="symptom-name">
+            {{ product.attributes.name }}
+          </v-card-title>
+          <!-- Price range with formatted Thai Baht -->
+          <v-card-subtitle class="price-range">
+            Price Range: {{ formatPriceRange(product.attributes.pricemin, product.attributes.pricemax) }}
+          </v-card-subtitle>
+          <!-- Contact Us button -->
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              class="card-btn"
+              @click="contactUs(product.attributes.name)"
+            >
+              Contact Us
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
     <v-row class="service-sec1">
@@ -297,6 +359,86 @@
 </template>
 <script>
 export default {
-  name: 'OurservicePage'
+
+  async asyncData ({ $axios }) {
+    try {
+      const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
+      return { products: response.data }
+    } catch (error) {
+      console.error('Error fetching products:', error)
+      return { products: [] }
+    }
+  },
+  data () {
+    return {
+      searchQuery: '', // Store the search query
+      products: [] // The fetched products
+    }
+  },
+
+  computed: {
+    filteredProducts () {
+      if (!this.searchQuery) {
+        return this.products
+      }
+      const query = this.searchQuery.toLowerCase()
+      return this.products.filter(product =>
+        product.attributes.name.toLowerCase().includes(query)
+      )
+    }
+  },
+
+  methods: {
+    getImageUrl (url) {
+      const baseUrl = 'http://localhost:1337' // Replace with your actual Strapi URL
+      return `${baseUrl}${url}`
+    },
+
+    formatPriceRange (pricemin, pricemax) {
+      if (pricemin === null || pricemax === null || pricemin === undefined || pricemax === undefined) {
+        return 'Please contact us'
+      }
+      const formatPrice = price => `฿${price.toLocaleString()}`
+      return `${formatPrice(pricemin)} - ${formatPrice(pricemax)}`
+    },
+
+    contactUs (serviceName) {
+      // Redirect to the contact page with the service name as a query parameter
+      this.$router.push({ path: '/contactv2', query: { service: serviceName } })
+    }
+  }
 }
 </script>
+<style scoped>
+.theme--dark.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
+    color: red !important;
+}
+.fit-image div{
+  object-fit: cover !important; /* Or 'contain' depending on your needs */
+  width: auto; /* Make sure the image takes up the full width of the card */
+  padding:0px;
+}
+.v-image__image--cover {
+    background-size: cover;
+}
+.card-main{
+  width:auto;
+  height:auto; /* Adjust the height as needed */
+}
+.card-btn{
+  width:100%;
+}
+.price-range{
+  min-height: 50px;
+}
+.symptom-name{
+  line-height: 22px;
+  min-height: 80px;
+}
+@media (max-width:767px) {
+  .searchbar{
+    max-width: 90% !important;
+}
+}
+
+</style>
