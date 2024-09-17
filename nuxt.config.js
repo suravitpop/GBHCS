@@ -59,7 +59,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL || 'http://localhost:1337'
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: 'http://localhost:1337'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -120,16 +121,5 @@ export default {
       Roboto: true,
       Mitr: true
     }
-  },
-
-  // Add this section for runtime config
-  publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || 'https://host-health.com'
-  },
-
-  // Add server configuration
-  server: {
-    host: '0.0.0.0', // This allows external access
-    port: 3000 // Or whatever port you're using
   }
 }
