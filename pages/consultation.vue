@@ -116,13 +116,13 @@
 export default {
   async asyncData ({ query }) {
     // Fetch products from the API
-    const response = await fetch('http://localhost:1337/api/products')
+    const response = await fetch('https://cms.HOST-Health.com/products')
     const result = await response.json()
 
     // Extract products from the API response
-    const products = result.data.map(product => ({
+    const products = result.map(product => ({
       id: product.id,
-      label: product.attributes.name
+      label: product.name
     }))
 
     // Check if there's a service parameter and find the corresponding product

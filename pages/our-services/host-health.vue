@@ -23,7 +23,7 @@ async asyncData({ $axios }) {
               cols="12"
             >
               <div class="text-h2 font-weight-bold mb-4 title">
-                Host Health
+                HOST Health
               </div>
               <!-- <div class="text-h5 subheading">
                 Feel free to contact us
@@ -390,7 +390,7 @@ export default {
 
   methods: {
     getImageUrl (url) {
-      const baseUrl = 'https://cms.host-health.com' // Replace with the actual CMS URL
+      const baseUrl = 'https://cms.HOST-Health.com' // Replace with the actual CMS URL
       return `${baseUrl}${url}`
     },
 
