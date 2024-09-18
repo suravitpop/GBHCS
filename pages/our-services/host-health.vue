@@ -390,7 +390,7 @@ export default {
 
   methods: {
     getImageUrl (url) {
-      const baseUrl = 'https://cms.HOST-Health.com' // Replace with the actual CMS URL
+      const baseUrl = 'http://localhost:1337' // Replace with the actual CMS URL
       return `${baseUrl}${url}`
     },
 
