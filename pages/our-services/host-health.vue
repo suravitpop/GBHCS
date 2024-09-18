@@ -64,26 +64,26 @@ async asyncData({ $axios }) {
         <v-card class="mx-auto card-main" max-width="80%">
           <!-- Display the image dynamically -->
           <v-img
-            v-if="product.attributes.image && product.attributes.image.data"
-            :src="getImageUrl(product.attributes.image.data.attributes.url)"
+            v-if="product.image && product.image.formats"
+            :src="getImageUrl(product.image.formats.medium.url || product.image.url)"
             height="150"
             cover
             class="fit-image"
           />
           <!-- Product name -->
           <v-card-title class="symptom-name">
-            {{ product.attributes.name }}
+            {{ product.name }}
           </v-card-title>
           <!-- Price range with formatted Thai Baht -->
           <v-card-subtitle class="price-range">
-            Price Range: {{ formatPriceRange(product.attributes.pricemin, product.attributes.pricemax) }}
+            Price Range: {{ formatPriceRange(product.pricemin, product.pricemax) }}
           </v-card-subtitle>
           <!-- Contact Us button -->
           <v-card-actions>
             <v-btn
               color="primary"
               class="card-btn"
-              @click="contactUs(product.attributes.name)"
+              @click="contactUs(product.name)"
             >
               Contact Us
             </v-btn>
@@ -91,6 +91,7 @@ async asyncData({ $axios }) {
         </v-card>
       </v-col>
     </v-row>
+
     <v-row class="service-sec1">
       <v-col cols="12" sm="12" md="4">
         <nuxt-link to="/contact-us">
@@ -359,11 +360,10 @@ async asyncData({ $axios }) {
 </template>
 <script>
 export default {
-
   async asyncData ({ $axios }) {
     try {
-      const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
-      return { products: response.data }
+      const response = await $axios.$get('/products') // No need to populate image, it's already included
+      return { products: response }
     } catch (error) {
       console.error('Error fetching products:', error)
       return { products: [] }
@@ -383,14 +383,14 @@ export default {
       }
       const query = this.searchQuery.toLowerCase()
       return this.products.filter(product =>
-        product.attributes.name.toLowerCase().includes(query)
+        product.name.toLowerCase().includes(query)
       )
     }
   },
 
   methods: {
     getImageUrl (url) {
-      const baseUrl = 'http://localhost:1337' // Replace with your actual Strapi URL
+      const baseUrl = 'https://cms.host-health.com' // Replace with the actual CMS URL
       return `${baseUrl}${url}`
     },
 
@@ -440,5 +440,4 @@ export default {
     max-width: 90% !important;
 }
 }
-
 </style>

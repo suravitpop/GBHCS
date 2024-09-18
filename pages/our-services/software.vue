@@ -47,7 +47,6 @@
             we craft software that streamlines clinical workflows, improves patient
             management, and ensures data security. Let us empower your medical practice with
             technology that's not just advanced, but also intuitive and tailored just for you. Experience the future of healthcare with our customized medical software services.
-            </p>
           </v-card-subtitle>
         </v-card>
       </v-col>
