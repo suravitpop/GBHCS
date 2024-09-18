@@ -12,8 +12,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'og:title', name: 'og:title', content: 'Host-Health by Global Help Care Solutions' },
-      { hid: 'og:image', name: 'og:image', content: 'https://host-health.com/_nuxt/img/logo-somebg.499938d.png' },
+      { hid: 'og:title', name: 'og:title', content: 'HOST-Health by Global Help Care Solutions' },
+      { hid: 'og:image', name: 'og:image', content: 'https://HOST-Health.com/_nuxt/img/logo-somebg.499938d.png' },
       {
         hid: 'description',
         name: 'description',
@@ -60,7 +60,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://cms.host-health.com'
+    baseURL: 'https://cms.HOST-Health.com'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

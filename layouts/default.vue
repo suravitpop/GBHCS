@@ -116,7 +116,7 @@ export default {
           to: '#',
           items: [
             {
-              title: 'Host Health',
+              title: 'HOST Health',
               to: '/our-services/host-health'
             },
             {

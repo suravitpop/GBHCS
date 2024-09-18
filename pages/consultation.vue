@@ -115,14 +115,17 @@
 <script>
 export default {
   async asyncData ({ query }) {
-    // Fetch products from the API
-    const response = await fetch('https://cms.HOST-Health.com/products')
+  // Fetch products from the API
+    const response = await fetch('https://cms.host-health.com/products')
     const result = await response.json()
 
-    // Extract products from the API response
+    // Map the fetched products to the format needed for the autocomplete
     const products = result.map(product => ({
       id: product.id,
-      label: product.name
+      label: product.name,
+      pricemin: product.pricemin,
+      pricemax: product.pricemax,
+      image: product.image ? product.image.formats.thumbnail.url : null // Use the thumbnail image if available
     }))
 
     // Check if there's a service parameter and find the corresponding product

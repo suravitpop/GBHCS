@@ -42,11 +42,13 @@
             Who we are?
           </v-card-title>
           <v-card-subtitle class="text">
-            We specialize in creating bespoke medical software solutions, meticulously designed to meet the unique requirements of each client. Our team focuses on delivering user-friendly, efficient,
-            and compliant software systems that enhance healthcare delivery. By understanding your specific needs,
-            we craft software that streamlines clinical workflows, improves patient
-            management, and ensures data security. Let us empower your medical practice with
-            technology that's not just advanced, but also intuitive and tailored just for you. Experience the future of healthcare with our customized medical software services.
+            <p>
+              We specialize in creating bespoke medical software solutions, meticulously designed to meet the unique requirements of each client. Our team focuses on delivering user-friendly, efficient,
+              and compliant software systems that enhance healthcare delivery. By understanding your specific needs,
+              we craft software that streamlines clinical workflows, improves patient
+              management, and ensures data security. Let us empower your medical practice with
+              technology that's not just advanced, but also intuitive and tailored just for you. Experience the future of healthcare with our customized medical software services.
+            </p>
           </v-card-subtitle>
         </v-card>
       </v-col>
