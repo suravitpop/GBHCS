@@ -116,7 +116,7 @@
 export default {
   async asyncData ({ query }) {
     // Fetch products from the API
-    const response = await fetch('http://167.71.203.49:1337/api/products')
+    const response = await fetch('http://localhost:1337/api/products')
     const result = await response.json()
 
     // Extract products from the API response
@@ -169,7 +169,7 @@ export default {
 
         console.log('Submitting form with data:', formData)
 
-        const response = await fetch('http://localhost:3001/api/contact', {
+        const response = await fetch('http://localhost:3002/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

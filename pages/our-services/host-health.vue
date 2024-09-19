@@ -64,12 +64,12 @@ async asyncData({ $axios }) {
         <v-card class="mx-auto card-main" max-width="80%">
           <!-- Display the image dynamically -->
           <v-img
-  v-if="product.image && product.image.formats"
-  :src="getImageUrl(product.image.formats.medium ? product.image.formats.medium.url : product.image.url)"
-  height="150"
-  cover
-  class="fit-image"
-/>
+            v-if="product.image && product.image.formats"
+            :src="getImageUrl(product.image.formats.medium ? product.image.formats.medium.url : product.image.url)"
+            height="150"
+            cover
+            class="fit-image"
+          />
 
           <!-- Product name -->
           <v-card-title class="symptom-name">
@@ -391,7 +391,7 @@ export default {
 
   methods: {
     getImageUrl (url) {
-      const baseUrl = 'http://167.71.203.49:1337' // Replace with your actual Strapi URL
+      const baseUrl = 'http://localhost:1337' // Replace with your actual Strapi URL
       return `${baseUrl}${url}`
     },
 
