@@ -23,7 +23,7 @@ async asyncData({ $axios }) {
               cols="12"
             >
               <div class="text-h2 font-weight-bold mb-4 title">
-                HOST Health
+                Host Health
               </div>
               <!-- <div class="text-h5 subheading">
                 Feel free to contact us
@@ -64,12 +64,13 @@ async asyncData({ $axios }) {
         <v-card class="mx-auto card-main" max-width="80%">
           <!-- Display the image dynamically -->
           <v-img
-            v-if="product.image && product.image.formats"
-            :src="getImageUrl(product.image.formats.medium.url || product.image.url)"
-            height="150"
-            cover
-            class="fit-image"
-          />
+  v-if="product.image && product.image.formats"
+  :src="getImageUrl(product.image.formats.medium ? product.image.formats.medium.url : product.image.url)"
+  height="150"
+  cover
+  class="fit-image"
+/>
+
           <!-- Product name -->
           <v-card-title class="symptom-name">
             {{ product.name }}
@@ -91,7 +92,6 @@ async asyncData({ $axios }) {
         </v-card>
       </v-col>
     </v-row>
-
     <v-row class="service-sec1">
       <v-col cols="12" sm="12" md="4">
         <nuxt-link to="/contact-us">
@@ -360,10 +360,11 @@ async asyncData({ $axios }) {
 </template>
 <script>
 export default {
+
   async asyncData ({ $axios }) {
     try {
-      const response = await $axios.$get('/products') // No need to populate image, it's already included
-      return { products: response }
+      const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
+      return { products: response.data }
     } catch (error) {
       console.error('Error fetching products:', error)
       return { products: [] }
@@ -390,7 +391,7 @@ export default {
 
   methods: {
     getImageUrl (url) {
-      const baseUrl = 'https://cms.host-health.com' // Replace with the actual CMS URL
+      const baseUrl = 'http://167.71.203.49:1337' // Replace with your actual Strapi URL
       return `${baseUrl}${url}`
     },
 
@@ -440,4 +441,5 @@ export default {
     max-width: 90% !important;
 }
 }
+
 </style>

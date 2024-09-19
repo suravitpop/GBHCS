@@ -115,27 +115,21 @@
 <script>
 export default {
   async asyncData ({ query }) {
-    try {
-      const response = await fetch('https://cms.host-health.com/products')
-      if (!response.ok) { throw new Error('Failed to fetch products') }
-      const result = await response.json()
+    // Fetch products from the API
+    const response = await fetch('http://167.71.203.49:1337/api/products')
+    const result = await response.json()
 
-      const products = result.map(product => ({
-        id: product.id,
-        label: product.name,
-        pricemin: product.pricemin,
-        pricemax: product.pricemax,
-        image: product.image ? product.image.formats.thumbnail.url : null
-      }))
+    // Extract products from the API response
+    const products = result.data.map(product => ({
+      id: product.id,
+      label: product.name
+    }))
 
-      const serviceName = query.service
-      const selectedProduct = products.find(product => product.label === serviceName)
+    // Check if there's a service parameter and find the corresponding product
+    const serviceName = query.service
+    const selectedProduct = products.find(product => product.label === serviceName)
 
-      return { productList: products, selectedProduct }
-    } catch (error) {
-      console.error('Error fetching products:', error)
-      return { productList: [], selectedProduct: null }
-    }
+    return { productList: products, selectedProduct }
   },
   data () {
     return {
@@ -165,6 +159,7 @@ export default {
   methods: {
     async submitForm () {
       try {
+        // Ensure selectedProduct is properly converted to a string or array
         const selected = this.selectedProduct ? this.selectedProduct.label : ''
 
         const formData = {
@@ -174,7 +169,7 @@ export default {
 
         console.log('Submitting form with data:', formData)
 
-        const response = await fetch('http://localhost:3002/api/contact', {
+        const response = await fetch('http://localhost:3001/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -188,14 +183,13 @@ export default {
           throw new Error('Network response was not ok')
         }
 
-        this.formData = {
-          name: '',
-          email: '',
-          message: '',
-          birthdate: '',
-          passport: '',
-          consent: false
-        }
+        // Clear form fields after successful submission
+        this.formData.name = ''
+        this.formData.email = ''
+        this.formData.message = ''
+        this.formData.birthdate = ''
+        this.formData.passport = ''
+        this.formData.consent = false
         this.selectedProduct = null
 
         this.successMessage = 'Your message has been sent successfully!'
@@ -207,7 +201,6 @@ export default {
       }
     }
   }
-
 }
 </script>
 
