@@ -1,7 +1,55 @@
-async asyncData({ $axios }) {
-  const products = await $axios.$get('/products');
-  return { products };
+<script>
+export default {
+  async asyncData ({ $axios }) {
+    try {
+      const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
+      return { products: response.data }
+    } catch (error) {
+      console.error('Error fetching products:', error)
+      return { products: [] }
+    }
+  },
+  data () {
+    return {
+      searchQuery: '', // Store the search query
+      products: [] // The fetched products
+    }
+  },
+
+  computed: {
+    filteredProducts () {
+      if (!this.searchQuery) {
+        return this.products
+      }
+      const query = this.searchQuery.toLowerCase()
+      return this.products.filter(product =>
+        product.name.toLowerCase().includes(query)
+      )
+    }
+  },
+
+  methods: {
+    getImageUrl (url) {
+      const baseUrl = 'https://cms.host-health.com' // Replace with your actual Strapi URL
+      return `${baseUrl}${url}`
+    },
+
+    formatPriceRange (pricemin, pricemax) {
+      if (pricemin === null || pricemax === null || pricemin === undefined || pricemax === undefined) {
+        return 'Please contact us'
+      }
+      const formatPrice = price => `฿${price.toLocaleString()}`
+      return `${formatPrice(pricemin)} - ${formatPrice(pricemax)}`
+    },
+
+    contactUs (serviceName) {
+      // Redirect to the contact page with the service name as a query parameter
+      this.$router.push({ path: '/consultation', query: { service: serviceName } })
+    }
+  }
 }
+</script>
+
 <template>
   <v-container class="fill-height pa-0 mb-10" fluid>
     <v-row align="center">
@@ -364,58 +412,7 @@ async asyncData({ $axios }) {
     <!-- end row -->
   </v-container>
 </template>
-<script>
-export default {
 
-  async asyncData ({ $axios }) {
-    try {
-      const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
-      return { products: response.data }
-    } catch (error) {
-      console.error('Error fetching products:', error)
-      return { products: [] }
-    }
-  },
-  data () {
-    return {
-      searchQuery: '', // Store the search query
-      products: [] // The fetched products
-    }
-  },
-
-  computed: {
-    filteredProducts () {
-      if (!this.searchQuery) {
-        return this.products
-      }
-      const query = this.searchQuery.toLowerCase()
-      return this.products.filter(product =>
-        product.name.toLowerCase().includes(query)
-      )
-    }
-  },
-
-  methods: {
-    getImageUrl (url) {
-      const baseUrl = 'http://localhost:1337' // Replace with your actual Strapi URL
-      return `${baseUrl}${url}`
-    },
-
-    formatPriceRange (pricemin, pricemax) {
-      if (pricemin === null || pricemax === null || pricemin === undefined || pricemax === undefined) {
-        return 'Please contact us'
-      }
-      const formatPrice = price => `฿${price.toLocaleString()}`
-      return `${formatPrice(pricemin)} - ${formatPrice(pricemax)}`
-    },
-
-    contactUs (serviceName) {
-      // Redirect to the contact page with the service name as a query parameter
-      this.$router.push({ path: '/consultation', query: { service: serviceName } })
-    }
-  }
-}
-</script>
 <style scoped>
 .theme--dark.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
     color: red !important;
