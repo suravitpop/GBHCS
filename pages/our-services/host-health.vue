@@ -23,7 +23,7 @@ async asyncData({ $axios }) {
               cols="12"
             >
               <div class="text-h2 font-weight-bold mb-4 title">
-                Host Health
+                HOST Health
               </div>
               <!-- <div class="text-h5 subheading">
                 Feel free to contact us
@@ -92,6 +92,11 @@ async asyncData({ $axios }) {
         </v-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12" align="center" class="our-services text-h4">
+        OUR SERVICES
+      </v-col>
+    </v-row>
     <v-row class="service-sec1">
       <v-col cols="12" sm="12" md="4">
         <nuxt-link to="/contact-us">
@@ -125,6 +130,7 @@ async asyncData({ $axios }) {
           </v-card>
         </nuxt-link>
       </v-col>
+
       <v-col cols="12" sm="12" md="4">
         <v-card
           class="mx-auto"
@@ -179,7 +185,7 @@ async asyncData({ $axios }) {
     </v-row>
 
     <v-row>
-      <v-col cols="12" align="center" class="text-h4">
+      <v-col cols="12" align="center" class="coverage-care text-h4">
         Coverage Care
       </v-col>
     </v-row>
@@ -421,6 +427,16 @@ export default {
 }
 .v-image__image--cover {
     background-size: cover;
+}
+.our-services{
+  margin-top:50px;
+  margin-bottom:15px;
+  text-decoration: underline;
+}
+.coverage-care{
+  margin-top:50px;
+  margin-bottom:30px;
+  text-decoration: underline;
 }
 .card-main{
   width:auto;
