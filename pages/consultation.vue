@@ -1,95 +1,3 @@
-<script>
-export default {
-  async asyncData ({ query }) {
-    // Fetch products from the API
-    const response = await fetch('https://cms.host-health.com/api/products')
-    const result = await response.json()
-
-    // Extract products from the API response
-    const products = result.data.map(product => ({
-      id: product.id,
-      label: product.name
-    }))
-
-    // Check if there's a service parameter and find the corresponding product
-    const serviceName = query.service
-    const selectedProduct = products.find(product => product.label === serviceName)
-
-    return { productList: products, selectedProduct }
-  },
-  data () {
-    return {
-      formData: {
-        name: '',
-        email: '',
-        message: '',
-        birthdate: '',
-        passport: '',
-        consent: false
-      },
-      successMessage: '',
-      errorMessage: '',
-      search: '',
-      isReadonly: false,
-      selectedProduct: null
-    }
-  },
-  watch: {
-    selectedProduct (newValue) {
-      if (newValue) {
-        this.formData.selected = newValue
-        this.isReadonly = true // Disable the autocomplete if a value is selected
-      }
-    }
-  },
-  methods: {
-    async submitForm () {
-      try {
-        // Ensure selectedProduct is properly converted to a string or array
-        const selected = this.selectedProduct ? this.selectedProduct.label : ''
-
-        const formData = {
-          ...this.formData,
-          selected
-        }
-
-        console.log('Submitting form with data:', formData)
-
-        const response = await fetch('http://localhost:3002/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
-
-        if (!response.ok) {
-          const errorText = await response.text()
-          console.error('Server error:', errorText)
-          throw new Error('Network response was not ok')
-        }
-
-        // Clear form fields after successful submission
-        this.formData.name = ''
-        this.formData.email = ''
-        this.formData.message = ''
-        this.formData.birthdate = ''
-        this.formData.passport = ''
-        this.formData.consent = false
-        this.selectedProduct = null
-
-        this.successMessage = 'Your message has been sent successfully!'
-        this.errorMessage = ''
-      } catch (error) {
-        console.error('Form submission error:', error)
-        this.errorMessage = 'There was a problem sending your message. Please try again.'
-        this.successMessage = ''
-      }
-    }
-  }
-}
-</script>
-
 <template>
   <v-container class="fill-height pa-0 mb-10" fluid>
     <v-row align="center">
@@ -203,6 +111,98 @@ export default {
     </v-row>
   </v-container>
 </template>
+
+<script>
+export default {
+  async asyncData ({ query }) {
+    // Fetch products from the API
+    const response = await fetch('https://cms.host-health.com/api/products')
+    const result = await response.json()
+
+    // Extract products from the API response
+    const products = result.data.map(product => ({
+      id: product.id,
+      label: product.name
+    }))
+
+    // Check if there's a service parameter and find the corresponding product
+    const serviceName = query.service
+    const selectedProduct = products.find(product => product.label === serviceName)
+
+    return { productList: products, selectedProduct }
+  },
+  data () {
+    return {
+      formData: {
+        name: '',
+        email: '',
+        message: '',
+        birthdate: '',
+        passport: '',
+        consent: false
+      },
+      successMessage: '',
+      errorMessage: '',
+      search: '',
+      isReadonly: false,
+      selectedProduct: null
+    }
+  },
+  watch: {
+    selectedProduct (newValue) {
+      if (newValue) {
+        this.formData.selected = newValue
+        this.isReadonly = true // Disable the autocomplete if a value is selected
+      }
+    }
+  },
+  methods: {
+    async submitForm () {
+      try {
+        // Ensure selectedProduct is properly converted to a string or array
+        const selected = this.selectedProduct ? this.selectedProduct.label : ''
+
+        const formData = {
+          ...this.formData,
+          selected
+        }
+
+        console.log('Submitting form with data:', formData)
+
+        const response = await fetch('http://167.71.203.49:3002/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+
+        if (!response.ok) {
+          const errorText = await response.text()
+          console.error('Server error:', errorText)
+          throw new Error('Network response was not ok')
+        }
+
+        // Clear form fields after successful submission
+        this.formData.name = ''
+        this.formData.email = ''
+        this.formData.message = ''
+        this.formData.birthdate = ''
+        this.formData.passport = ''
+        this.formData.consent = false
+        this.selectedProduct = null
+
+        this.successMessage = 'Your message has been sent successfully!'
+        this.errorMessage = ''
+      } catch (error) {
+        console.error('Form submission error:', error)
+        this.errorMessage = 'There was a problem sending your message. Please try again.'
+        this.successMessage = ''
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .contact-form {

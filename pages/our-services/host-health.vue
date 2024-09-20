@@ -1,5 +1,6 @@
 <script>
 export default {
+
   async asyncData ({ $axios }) {
     try {
       const response = await $axios.$get('/api/products?populate=image') // Include the image in the API request
