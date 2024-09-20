@@ -169,7 +169,7 @@ export default {
 
         console.log('Submitting form with data:', formData)
 
-        const response = await fetch('http://167.71.203.49:3002/api/contact', {
+        const response = await fetch('https://email.host-health.com/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
