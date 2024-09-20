@@ -36,6 +36,22 @@
         />
       </v-col>
     </v-row>
+    <div class="container">
+      <form @submit.prevent="submitForm">
+        <label for="name">Name:</label>
+        <input id="name" v-model="formData.name" type="text" name="name" required>
+
+        <label for="email">Email:</label>
+        <input id="email" v-model="formData.email" type="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" v-model="formData.message" name="message" rows="4" required />
+
+        <button type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   </v-container>
 </template>
 <script>
@@ -43,4 +59,5 @@ export default {
   name: 'IndexPage',
   layout: 'default'
 }
+
 </script>

@@ -1,16 +1,18 @@
 <template>
   <v-container class="pa-5 mt-5 mb-10">
-    <v-row align="center">
-      <v-col cols="12" sm="12" md="6">
+    <v-row align="center" class="whoarewe">
+      <v-col cols="12" sm="12" md="4">
         <v-img
-          :src="require(`~/assets/images/five.webp`)"
-          :aspect-ratio="16/9"
+          :src="require(`~/assets/images/whoarewe.png`)"
+          :aspect-ratio="1/1"
           style="border-radius: 25px;"
+          cover
+          top
         />
       </v-col>
-      <v-col cols="12" sm="12" md="6" class="aboutcc">
+      <v-col cols="12" sm="12" md="8" class="aboutcc">
         <div class="text-h4">
-          What We do?
+          Who are we
         </div>
         <p class="text-left">
           We offer you a caretaker with transportation for hospital visit
@@ -24,10 +26,3 @@
     </v-row>
   </v-container>
 </template>
-
-<script>
-export default {
-  name: 'IndexPage',
-  layout: 'default'
-}
-</script>

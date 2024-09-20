@@ -33,9 +33,9 @@
                 rounded
                 x-large
                 color="primary"
-                @click="$vuetify.goTo('.contact_section')"
+                @click="nevigatetohosthealth"
               >
-                Contact us
+              ESTIMATE YOUR SERVICE COST
                 <template #loader>
                   <span class="custom-loader">
                     <v-icon light>mdi-cached</v-icon>
@@ -50,7 +50,7 @@
     <!-- <v-parallax
       dark
       height="300"
-      :src="require(`~/assets/images/cover.jpg`)"
+      :src="require(`~/assets/images/bg1.webp`)"
     >
       <v-row
         align="center"
@@ -71,3 +71,14 @@
     </v-parallax> -->
   </v-container>
 </template>
+<script>
+export default {
+  methods: {
+    nevigatetohosthealth () {
+      this.$router.push('/our-services/host-health')
+    }
+    // ... other methods
+  }
+  // ... other component options
+}
+</script>

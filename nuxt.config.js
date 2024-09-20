@@ -1,8 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
+import 'css.escape/css.escape.js'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -11,11 +13,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'og:title', name: 'og:title', content: 'Host-Health by Global Help Care Solutions' },
-    { hid: 'og:image', name: 'og:image', content: 'https://host-health.com/_nuxt/img/logo-somebg.499938d.png' },
-      { hid: 'description', 
-      name: 'description', 
-      content: 'HOST-Health | We offer health solutions for your stay in Thailand' },
+      { hid: 'og:title', name: 'og:title', content: 'Host-Health by Global Help Care Solutions' },
+      { hid: 'og:image', name: 'og:image', content: 'https://host-health.com/_nuxt/img/logo-somebg.499938d.png' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'HOST-Health | We offer health solutions for your stay in Thailand'
+      },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -29,6 +33,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/assets/css.escape.js'
+    // ... other plugins
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,13 +54,14 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    'nuxt-vue-select'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    baseURL: 'https://cms.host-health.com'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
