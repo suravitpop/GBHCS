@@ -33,9 +33,9 @@
                 rounded
                 x-large
                 color="primary"
-                @click="navigateToContactUs"
+                @click="nevigatetohosthealth"
               >
-                Contact us
+              ESTIMATE YOUR SERVICE COST
                 <template #loader>
                   <span class="custom-loader">
                     <v-icon light>mdi-cached</v-icon>
@@ -74,8 +74,8 @@
 <script>
 export default {
   methods: {
-    navigateToContactUs () {
-      this.$router.push('/contact-us')
+    nevigatetohosthealth () {
+      this.$router.push('/our-services/host-health')
     }
     // ... other methods
   }
